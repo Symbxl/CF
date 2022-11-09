@@ -12,7 +12,7 @@ export default function App() {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [submittedData, setSubmittedData] = useState({
     "01. symbol": "",
-    "05. symbol": "",
+    "05. price": "",
     "10. change percent": "",
   });
 
@@ -31,7 +31,7 @@ export default function App() {
       setIsLoading(false);
       setIsSubmitted(true);
     } catch (error) {
-      setIsSubmitted(false);
+      console.error(error);
     }
   };
 
@@ -78,11 +78,11 @@ export default function App() {
   const handleSubmit = (event) => {
     event.preventDefault();
     try {
+      setIsSubmitted(false);
       setIsLoading(true);
       getStock(formData);
       setFormData("");
     } catch (error) {
-      setIsSubmitted(false);
       console.error(error);
     }
   };
@@ -113,14 +113,14 @@ export default function App() {
   return (
     <>
       <Container>
-        <SymbolSearch>
+        <div>
           <h2>search for a stock</h2>
           <Form
             data={formData}
             setData={setFormData}
             handleSubmit={handleSubmit}
           />
-        </SymbolSearch>
+        </div>
 
         {isLoading && <h1>LOADING...</h1>}
 
@@ -144,5 +144,3 @@ const Container = styled.div`
   align-items: center;
   justify-content: space-around;
 `;
-
-const SymbolSearch = styled.div``;

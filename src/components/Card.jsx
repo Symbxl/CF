@@ -1,14 +1,20 @@
 import styled from 'styled-components'
 
 export default function Card({ stock, handleFavorite }) {
-
   return (
-    <Container>
-      <p>{stock["01. symbol"]}</p>
-      <p>{stock["05. price"]}</p>
-      <p>{stock["10. change percent"]}</p>
-      <Button onClick={handleFavorite}>Add to favorites</Button>
-    </Container>
+    <>
+    {
+      stock["01. symbol"] !== undefined && (
+        <Container>
+        <p>{stock["01. symbol"]}</p>
+        <p>{stock["05. price"]}</p>
+        <p>{stock["10. change percent"]}</p>
+        <Button onClick={handleFavorite}>Add to favorites</Button>
+      </Container>
+      )
+    }
+
+    </>
   )
 }
 
