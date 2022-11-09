@@ -1,10 +1,8 @@
-# Getting Started with Create React App
+Directions:
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Create a key from https://www.alphavantage.co/
 
-## Available Scripts
-
-In the project directory, you can run:
+place your key in an .env file with the name KEY
 
 ### `npm start`
 
